@@ -613,6 +613,79 @@
       #ii1ef-2 {
         filter: invert(60%);
       }
+
+      .disc-head {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 1rem;
+      }
+      
+      .disc-head h2 {
+          margin: 0;
+      }
+      
+      .disc-head > div {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+      }
+      
+      .disc-head p {
+          margin: 0;
+      }
+      
+      /* Toggle switch styles */
+      .switch {
+          position: relative;
+          display: inline-block;
+          width: 60px;
+          height: 34px;
+      }
+      
+      .switch input {
+          opacity: 0;
+          width: 0;
+          height: 0;
+      }
+      
+      .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: #ccc;
+          transition: .4s;
+      }
+      
+      .slider:before {
+          position: absolute;
+          content: "";
+          height: 26px;
+          width: 26px;
+          left: 4px;
+          bottom: 4px;
+          background-color: white;
+          transition: .4s;
+      }
+      
+      input:checked + .slider {
+          background-color: #2196F3;
+      }
+      
+      input:checked + .slider:before {
+          transform: translateX(26px);
+      }
+      
+      .slider.round {
+          border-radius: 34px;
+      }
+      
+      .slider.round:before {
+          border-radius: 50%;
+      }
     }
   </style>
 </head>
@@ -643,17 +716,18 @@
         <div class="card-text">
           <p id="ismco"><span id="docs-internal-guid-9d18995a-7fff-de32-3f02-322367bccc25">
             </span></p>
-          <h2 dir="ltr" id="iq9qq"><span id="i9rnx">Campaign intro </span></h2>
-          <p dir="ltr" id="id4ti"><span id="ihrfa">Karnataka’s lakes and tanks are vital for people, animals, and
-              nature. The government has proposed the Karnataka Tank Conservation and Development Authority
-              Amendment Bill 2025, but experts say it could harm these water bodies instead of protecting them.
-              45,000 lakes and 11 crore trees are at stake, along with invaluable infrastructure and countless
-              lives! </span></p>
+          <div class="disc-head">
+              <h2>Campaign intro</h2>
+              <div>
+                  <p>ಕನ್ನಡ</p>
+                  <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                  </label>
+              </div>
+          </div>
+          <p dir="ltr" id="id4ti"><span id="ihrfa">Karnataka's lakes and tanks are vital for people, animals, and nature. The government has proposed the Karnataka Tank Conservation and Development Authority Amendment Bill 2025, but experts say it could harm these water bodies instead of protecting them. 45,000 lakes and 11 crore trees are at stake, along with invaluable infrastructure and countless lives!<br><br>Karnataka needs you to Care for Kere!<br><br>Send the email objection. Make your voice count.</span></p>
           <p dir="ltr" id="i7944"><span id="docs-internal-guid-c980f78d-7fff-5bd8-ef0c-ef8f3a6c6593"></span></p>
-          <p dir="ltr" id="i2vud"><span id="iswbg">Karnataka needs you to Care for Kere! </span><span
-              id="iphct"><br /></span><span id="ihyst"><br /></span><span id="iswd4">Send the email objection. Make
-              your voice count. </span></p>
-          <p></p>
         </div>
       </div><!-- Social Buttons -->
       <div class="social-buttons"><a href="https://x.com/ThereIsNoEarthB" target="_blank" rel="noopener noreferrer"
@@ -716,6 +790,24 @@
           }
         });
       });
+
+      document.addEventListener('DOMContentLoaded', function() {
+        const checkbox = document.querySelector('.switch input[type="checkbox"]');
+        const contentElement = document.getElementById('ihrfa');
+        
+        const englishText = "Karnataka's lakes and tanks are vital for people, animals, and nature. The government has proposed the Karnataka Tank Conservation and Development Authority Amendment Bill 2025, but experts say it could harm these water bodies instead of protecting them. 45,000 lakes and 11 crore trees are at stake, along with invaluable infrastructure and countless lives!<br><br>Karnataka needs you to Care for Kere!<br><br>Send the email objection. Make your voice count.";
+        
+        const kannadaText = "ಜನರು, ಪ್ರಾಣಿಗಳು ಮತ್ತು ಪ್ರಕೃತಿಗೆ ಕರ್ನಾಟಕದ ಸರೋವರಗಳು ಮತ್ತು ಟ್ಯಾಂಕ್‌ಗಳು ಅತ್ಯಗತ್ಯ. ಸರ್ಕಾರವು ಕರ್ನಾಟಕ ಟ್ಯಾಂಕ್ ಸಂರಕ್ಷಣೆ ಮತ್ತು ಅಭಿವೃದ್ಧಿ ಪ್ರಾಧಿಕಾರದ ತಿದ್ದುಪಡಿ ಮಸೂದೆ 2025 ಅನ್ನು ಪ್ರಸ್ತಾಪಿಸಿದೆ, ಆದರೆ ತಜ್ಞರು ಈ ಜಲಮೂಲಗಳನ್ನು ರಕ್ಷಿಸುವ ಬದಲು ಹಾನಿ ಮಾಡಬಹುದೆಂದು ಹೇಳುತ್ತಾರೆ. ಅಮೂಲ್ಯವಾದ ಮೂಲಸೌಕರ್ಯ ಮತ್ತು ಅಸಂಖ್ಯಾತ ಜೀವಗಳ ಜೊತೆಗೆ 45,000 ಸರೋವರಗಳು ಮತ್ತು 11 ಕೋಟಿ ಮರಗಳು ಅಪಾಯದಲ್ಲಿವೆ!<br><br>ಕೆರೆಗಳನ್ನು ಉಳಿಸಿ, ಪರಿಸರವನ್ನು ಬೆಳೆಸಿ!<br><br>ಇಮೇಲ್ ಆಕ್ಷೇಪಣೆಯನ್ನು ಕಳುಹಿಸಿ. ನಿಮ್ಮ ಧ್ವನಿ ಎಣಿಕೆ ಮಾಡಿ.";
+        
+        checkbox.addEventListener('change', function() {
+          if (this.checked) {
+            contentElement.innerHTML = kannadaText;
+          } else {
+            contentElement.innerHTML = englishText;
+          }
+        });
+      });
+
     </script><!-- Scroll to top script -->
     <script>
       const scrollTopBtn = document.getElementById("scrollTopBtn");
